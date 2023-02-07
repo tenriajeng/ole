@@ -11,9 +11,15 @@ function Navigation() {
 					<a className={brandStyle}>Sejawat</a>
 				</div>
 				<div className="w-10/12 flex justify-end space-x-10 items-center">
-					<a className={menuStyle}>Home</a>
-					<a className={menuStyle}>Blog</a>
-					<a className={menuStyle}>Subscription</a>
+					<a href="/home" className={menuStyle}>
+						Home
+					</a>
+					<a href="/blog" className={menuStyle}>
+						Blog
+					</a>
+					<a href="/subscription" className={menuStyle}>
+						Subscription
+					</a>
 				</div>
 			</div>
 		</div>
