@@ -5,16 +5,18 @@ import CategoriesCarousel from "./components/categoriesCarousel";
 import Card from "./components/card";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
+import CardLoading from "./components/cardLoading";
 
 function App() {
 	const [topics, setTopics] = useState([]);
+	const [loading, setLoading] = useState(false);
 
 	async function getTopics() {
 		await axios
 			.get("https://sejawat.co.id/api/v1/event")
 			.then((data) => {
 				setTopics(data.data.data);
-				console.log(data.data.data);
+				setLoading(false);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -23,6 +25,7 @@ function App() {
 	}
 
 	useEffect(() => {
+		setLoading(true);
 		getTopics();
 	}, []);
 
@@ -36,9 +39,13 @@ function App() {
 			{/* <CategoriesCarousel /> */}
 			<div className="w-screen flex justify-center">
 				<div className="w-11/12 mt-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-					{topics.map((topic) => {
-						return <Card key={topic.slug} topic={topic} />;
-					})}
+					{!loading ? (
+						topics.map((topic) => {
+							return <Card key={topic.slug} topic={topic} />;
+						})
+					) : (
+						<CardLoading />
+					)}
 				</div>
 			</div>
 		</div>
