@@ -38,7 +38,7 @@ function App() {
 			<Navigation />
 			{/* <CategoriesCarousel /> */}
 			<div className="w-screen flex justify-center">
-				<div className="w-11/12 mt-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+				<div className="w-11/12 mt-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
 					{!loading ? (
 						topics.map((topic) => {
 							return <Card key={topic.slug} topic={topic} />;
