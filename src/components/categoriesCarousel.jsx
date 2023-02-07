@@ -36,7 +36,7 @@ function CategoriesCarousel() {
 
 	return (
 		<div className="w-screen flex content-center justify-center mt-4">
-			<div className="w-11/12 ">
+			<div className="w-10/12 ">
 				<Swiper navigation={true} modules={[Navigation]} className="mySwiper" spaceBetween={20} slidesPerView={12} onSlideChange={() => console.log("slide change")} onSwiper={(swiper) => console.log(swiper)}>
 					{categories.map((category, key) => {
 						return (

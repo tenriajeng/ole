@@ -5,7 +5,7 @@ function Card({ topic }) {
 	const PlaceholderImage = "https://sejawat.s3.ap-southeast-1.amazonaws.com/sejawat/avatars/4a8820cc6507849820d03deae55af243/adventurer.png";
 
 	return (
-		<div className="border-solid border border-indigo-600 w-full aspect-square rounded-xl overflow-hidden hover:cursor-pointer">
+		<div className="shadow-lg hover:shadow-indigo-500/50 w-full aspect-square rounded-xl overflow-hidden hover:cursor-pointer">
 			<LazyLoadImage src={topic.image} className="w-full" alt={topic.slug} placeholderSrc={PlaceholderImage} effect="blur" width="640" height="640" />
 		</div>
 	);
