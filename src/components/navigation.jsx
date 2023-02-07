@@ -1,4 +1,5 @@
 import React from "react";
+import Avatar from "./avatar";
 
 function Navigation() {
 	const menuStyle = "font-semibold text-white hover:cursor-pointer hover:underline underline-offset-8";
@@ -21,7 +22,7 @@ function Navigation() {
 					</a>
 
 					<div className="flex items-center">
-						<button type="button" class="w-full">
+						<button type="button" name="btn-search" class="w-full">
 							<svg width="24" height="24" fill="none" aria-hidden="true" class="text-white ">
 								<path d="m19 19-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 								<circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
@@ -30,7 +31,7 @@ function Navigation() {
 					</div>
 
 					<div class="rounded-full bg-white h-10 w-10 overflow-hidden">
-						<img src="https://sejawat.s3.ap-southeast-1.amazonaws.com/sejawat/avatars/4a8820cc6507849820d03deae55af243/adventurer.png" alt="" />
+						<Avatar />
 					</div>
 				</div>
 			</div>
