@@ -40,8 +40,8 @@ function App() {
 
 			<div className="w-screen flex justify-center flex-wrap">
 				<div className="w-11/12 flex items-center justify-between mt-4">
-					<span className="text-2xl font-semibold text-indigo-500">Trend</span>
-					<span className="text-base font-semibold text-indigo-500 hover:cursor-pointer hover:underline">See All</span>
+					<span className="text-2xl font-semibold text-black">Trend</span>
+					<span className="text-base font-semibold text-black hover:cursor-pointer hover:underline">See All</span>
 				</div>
 				<div className="w-11/12 mt-2 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
 					{!loading ? (
