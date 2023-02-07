@@ -4,6 +4,7 @@ import Navigation from "./components/navigation";
 import CategoriesCarousel from "./components/categoriesCarousel";
 import Card from "./components/card";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 function App() {
 	const [topics, setTopics] = useState([]);
@@ -27,6 +28,10 @@ function App() {
 
 	return (
 		<div>
+			<Helmet>
+				<title>Vite+React!</title>
+				<meta name="description" content="this meta description." />
+			</Helmet>
 			<Navigation />
 			{/* <CategoriesCarousel /> */}
 			<div className="w-screen flex justify-center">
