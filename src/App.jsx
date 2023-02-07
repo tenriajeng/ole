@@ -1,34 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React, { useEffect, useState } from "react";
+
+import Navigation from "./components/navigation";
+import CategoriesCarousel from "./components/categoriesCarousel";
+import Card from "./components/card";
+import axios from "axios";
 
 function App() {
-  const [count, setCount] = useState(0)
+	const [topics, setTopics] = useState([]);
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+	async function getTopics() {
+		await axios
+			.get("https://sejawat.co.id/api/v1/event")
+			.then((data) => {
+				setTopics(data.data.data);
+				console.log(data.data.data);
+			})
+			.catch((err) => {
+				console.log(err);
+				return null;
+			});
+	}
+
+	useEffect(() => {
+		getTopics();
+	}, []);
+
+	return (
+		<div>
+			<Navigation />
+			{/* <CategoriesCarousel /> */}
+			<div className="w-screen flex justify-center">
+				<div className="w-11/12 mt-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+					{topics.map((topic) => {
+						return <Card key={topic.slug} topic={topic} />;
+					})}
+				</div>
+			</div>
+		</div>
+	);
 }
 
-export default App
+export default App;
