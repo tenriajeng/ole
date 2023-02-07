@@ -22,7 +22,7 @@ function Navigation() {
 					</a>
 
 					<div className="flex items-center">
-						<button type="button" name="btn-search" class="w-full">
+						<button type="button" name="btn-search" class="w-full" aria-label="btn search">
 							<svg width="24" height="24" fill="none" aria-hidden="true" class="text-white ">
 								<path d="m19 19-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 								<circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
