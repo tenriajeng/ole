@@ -1,7 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Link, Route } from "react-router-dom";
-import Blog from "../view/blog";
-import Home from "../view/home";
+import { Link } from "react-router-dom";
 import Avatar from "./avatar";
 
 function Navigation() {
@@ -18,8 +16,8 @@ function Navigation() {
 						</Link>
 					</div>
 					<div className="w-10/12 flex justify-end space-x-5 items-center">
-						<Link to={"/blog"} className={menuStyle}>
-							Blog
+						<Link to={"/article"} className={menuStyle}>
+							Article
 						</Link>
 						<Link to="/subscription" className={menuStyle}>
 							Subscription
@@ -30,11 +28,6 @@ function Navigation() {
 					</div>
 				</div>
 			</div>
-			<Routes>
-				<Route exact path="/" element={<Home />} />
-				<Route path="/blog" element={<Blog />} />
-				<Route path="/subscription" element={<Blog />} />
-			</Routes>
 		</>
 	);
 }

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Card from "../components/card";
 import CardLoading from "../components/cardLoading";
 import HeroCarousel from "../components/heroCarousel";
+import { Link } from "react-router-dom";
 
 function Home() {
 	const [topics, setTopics] = useState([]);
@@ -38,7 +39,11 @@ function Home() {
 					{!loading ? (
 						topics.map((topic, key) => {
 							if (key < 4) {
-								return <Card key={topic.slug} topic={topic} shadow={true} />;
+								return (
+									<Link to={"/article"}>
+										<Card key={topic.slug} topic={topic} shadow={true} />
+									</Link>
+								);
 							}
 						})
 					) : (
