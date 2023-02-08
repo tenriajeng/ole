@@ -1,7 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
+import { Navigation, Autoplay, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
+
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Card from "./card";
 
@@ -39,11 +41,27 @@ function HeroCarousel({ topics }) {
 	return (
 		<div className="w-screen flex content-center justify-center mt-4">
 			<div className="w-10/12 ">
-				<Swiper navigation={true} modules={[Navigation]} className="mySwiper overflow-visible" spaceBetween={8} slidesPerView={6} onSlideChange={() => console.log("slide change")} onSwiper={(swiper) => console.log(swiper)}>
+				<Swiper
+					style={{
+						"--swiper-navigation-color": "#000",
+						"--swiper-pagination-color": "#000",
+					}}
+					autoplay={{
+						delay: 2500,
+						disableOnInteraction: false,
+					}}
+					navigation={true}
+					modules={[Navigation, Autoplay]}
+					className="mySwiper scroll-pl-52"
+					spaceBetween={8}
+					slidesPerView={6}
+					onSlideChange={() => console.log("slide change")}
+					onSwiper={(swiper) => console.log(swiper)}
+				>
 					{topics.map((topic) => {
 						return (
 							<SwiperSlide key={topic.slug}>
-								<Card topic={topic} />
+								<Card topic={topic} shadow={false} />
 							</SwiperSlide>
 						);
 					})}
