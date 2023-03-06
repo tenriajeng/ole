@@ -1,22 +1,44 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import Navigation from "./components/navigation";
-import Card from "./components/card";
-import axios from "axios";
 import { Helmet } from "react-helmet-async";
-import CardLoading from "./components/cardLoading";
-import HeroCarousel from "./components/heroCarousel";
+import { useDispatch } from "react-redux";
+import { authentication } from "./store";
+import authService from "./service/authService";
+import { Cookies } from "react-cookie";
 
 function App() {
-	return (
-		<div>
-			<Helmet>
-				<title>Vite+React!</title>
-				<meta name="description" content="this meta description." />
-			</Helmet>
-			<Navigation />
-		</div>
-	);
+    const dispatch = useDispatch();
+    const cookies = new Cookies();
+
+    const getAuthUser = () => {
+        authService
+            .authenticateUser()
+            .then((response) => {
+                console.log(response);
+                dispatch(authentication.setAuthenticate(response));
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
+    useEffect(() => {
+        if (cookies.get("auth_token")) {
+            getAuthUser();
+        }
+    }, []);
+
+    return (
+        <div>
+            <Helmet>
+                <title>Vite+React!</title>
+                <meta name="description" content="this meta description." />
+                <style>{"body { background-color: #10172a; }"}</style>
+            </Helmet>
+            <Navigation />
+        </div>
+    );
 }
 
 export default App;
