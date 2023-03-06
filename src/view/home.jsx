@@ -3,7 +3,7 @@ import CardLoading from "../components/cardLoading";
 import HeroCarousel from "../components/heroCarousel";
 import { Link } from "react-router-dom";
 import CardImage from "../components/cardImage";
-import CourseService from "../service/CourseService";
+import CourseService from "../service/courseService";
 
 function Home() {
     const [courses, setCourses] = useState([]);
