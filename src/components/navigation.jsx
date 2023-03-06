@@ -5,6 +5,7 @@ import Modal from "./modal";
 import AvatarDropdown from "./avatarDropdown";
 import { PlusIcon } from "@heroicons/react/24/solid";
 import ModalCreateCourse from "./course/modalCreateCourse";
+import { Tooltip } from "flowbite-react";
 
 function Navigation() {
     let [isOpen, setIsOpen] = useState(false);
@@ -58,13 +59,15 @@ function Navigation() {
                         </button>
                         {globalAuth ? (
                             <>
-                                <button
-                                    onClick={openModalCreateCourse}
-                                    type="button"
-                                    className="flex h-9 items-center justify-between rounded-lg bg-slate-900 px-2 text-sm font-normal text-gray-200 outline outline-1 hover:outline-cyan-500"
-                                >
-                                    <PlusIcon className="h-5 w-5" />
-                                </button>
+                                <Tooltip content="Create Course" style="dark">
+                                    <button
+                                        onClick={openModalCreateCourse}
+                                        type="button"
+                                        className="flex h-9 items-center justify-between rounded-lg bg-slate-900 px-2 text-sm font-normal text-gray-200 outline outline-1 hover:outline-cyan-500"
+                                    >
+                                        <PlusIcon className="h-5 w-5" />
+                                    </button>
+                                </Tooltip>
                                 <AvatarDropdown />
                             </>
                         ) : (
