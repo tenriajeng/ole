@@ -28,7 +28,7 @@ function AvatarDropdown() {
                                 <button
                                     className={`${
                                         active ? "text-cyan-300" : "text-white"
-                                    } group flex w-full items-center rounded-md p-2 text-xs`}
+                                    } group flex w-full items-center rounded-md p-2 text-sm`}
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"

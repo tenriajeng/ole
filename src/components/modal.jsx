@@ -35,7 +35,7 @@ function Modal({ onOpen, onClose }) {
                                 <input
                                     placeholder="Search ..."
                                     type="text"
-                                    className="flex h-12 w-full items-center rounded-lg bg-slate-800 px-1 text-sm font-normal text-gray-200 outline outline-1 outline-transparent"
+                                    className="flex h-12 w-full items-center rounded-lg border-0 bg-slate-800 px-1 text-sm font-normal text-gray-200 outline outline-1 outline-transparent focus:border-0 focus:ring-0"
                                 />
                             </Dialog.Panel>
                         </Transition.Child>

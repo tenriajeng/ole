@@ -1,9 +1,6 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import CardImage from "./cardImage";
 import { Carousel } from "flowbite-react";
 
 function HeroCarousel({ courses }) {

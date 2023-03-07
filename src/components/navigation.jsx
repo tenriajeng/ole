@@ -9,7 +9,7 @@ import { Tooltip } from "flowbite-react";
 
 function Navigation() {
     let [isOpen, setIsOpen] = useState(false);
-    let [modalCreateCourseIsOpen, setModalCreateCourseIsOpen] = useState(true);
+    let [modalCreateCourseIsOpen, setModalCreateCourseIsOpen] = useState(false);
     const globalAuth = useSelector((state) => state.authReducer.authenticate);
 
     function openModal() {
@@ -23,7 +23,7 @@ function Navigation() {
     const menuStyle =
         "font-medium text-sm text-gray-100 hover:cursor-pointer hover:text-cyan-500";
     const brandStyle =
-        "text-3xl text-cyan-500 font-semibold hover:cursor-pointer";
+        "flex items-center text-2xl text-cyan-400 font-semibold hover:cursor-pointer";
 
     return (
         <>
@@ -31,7 +31,12 @@ function Navigation() {
                 <div className="flex w-10/12 justify-between">
                     <div className="flex w-6/12 items-center justify-start space-x-10">
                         <Link to="/" className={brandStyle}>
-                            VLAB
+                            <img
+                                className="mx-1"
+                                src="https://flowbite.com/docs/images/logo.svg"
+                                alt="brand"
+                            />
+                            <span>VLAB</span>
                         </Link>
                         <Link to={"/course"} className={menuStyle}>
                             Course
