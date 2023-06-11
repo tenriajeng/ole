@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Breadcrumb({ name, slug }) {
     return (
-        <div className="mt-1 flex w-full items-center justify-center bg-slate-900 py-3 shadow-sm shadow-slate-600/50">
+        <div className="mt-1 flex w-full items-center justify-center bg-slate-900/50 py-3 shadow-sm shadow-slate-600/50">
             <div className="mb-1.5 flex w-10/12 items-center justify-between">
                 <nav className="flex" aria-label="Breadcrumb">
                     <ol className="inline-flex items-center space-x-1 md:space-x-3">

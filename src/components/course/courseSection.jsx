@@ -9,7 +9,7 @@ function CourseSection({ course }) {
                 key={course_section.slug}
             >
                 <Disclosure>
-                    <Disclosure.Button className="flex w-full justify-between px-2 py-3 text-gray-200 hover:cursor-pointer">
+                    <Disclosure.Button className="flex w-full justify-between px-3 py-3 text-gray-200 hover:cursor-pointer">
                         <span className="font-semibold">
                             {course_section.name}
                         </span>

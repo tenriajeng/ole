@@ -1,13 +1,33 @@
-import { Fragment } from "react";
+import { Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/solid";
+import courseService from "../../service/courseService";
 
 function ModalCreateCourse({ onOpen, onClose }) {
+    const nameRef = useRef();
+    const descriptionRef = useRef();
+
     const inputStyle =
         "flex h-12 w-full items-center rounded-lg bg-slate-800 px-4 text-sm font-normal text-gray-200 outline outline-1 outline-transparent focus:outline-cyan-500";
     const textAreaStyle =
         "flex h-32 w-full items-center rounded-lg bg-slate-800 p-4 text-sm font-normal text-gray-200 outline outline-1 outline-transparent focus:outline-cyan-500";
     const labelStyle = "mb-1 block text-sm font-light text-white";
+
+    async function create() {
+        const data = {
+            name: nameRef.current.value,
+            description: descriptionRef.current.value,
+        };
+
+        courseService
+            .create(data)
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
 
     return (
         <Transition appear show={onOpen} as={Fragment}>
@@ -57,6 +77,7 @@ function ModalCreateCourse({ onOpen, onClose }) {
                                                 type="text"
                                                 placeholder="Title"
                                                 className={inputStyle}
+                                                ref={nameRef}
                                             />
                                         </div>
                                         <div className="mb-4">
@@ -65,13 +86,14 @@ function ModalCreateCourse({ onOpen, onClose }) {
                                                 type="text"
                                                 placeholder="Description"
                                                 className={textAreaStyle}
+                                                ref={descriptionRef}
                                             ></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="flex h-16 w-full items-center justify-end bg-slate-900 px-2 ">
                                     <button
-                                        onClick={onClose}
+                                        onClick={create}
                                         type="button"
                                         className="flex w-20 items-center justify-center rounded-lg bg-slate-900 px-3 py-1.5  text-sm font-normal text-white outline outline-1 outline-white hover:outline-cyan-500"
                                     >

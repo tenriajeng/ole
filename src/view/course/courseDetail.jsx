@@ -64,7 +64,8 @@ function CourseDetail() {
                             </h1>
                         </div>
                         <div className="w-full py-2 text-gray-200">
-                            {!loading ? parse(course.description) : ""}
+                            {/* {!loading ? parse(course.description) : ""} */}
+                            {!loading ? course.description : ""}
                         </div>
                         <div className="flex w-full gap-2 py-2">
                             <button className="rounded-full bg-slate-900 px-3 py-1.5 text-sm font-normal text-gray-200 outline outline-1 hover:outline-cyan-500">

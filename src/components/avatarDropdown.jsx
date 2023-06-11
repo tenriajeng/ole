@@ -4,9 +4,9 @@ import Avatar from "./avatar";
 
 function AvatarDropdown() {
     return (
-        <Menu as="div" className="relative inline-block text-left">
-            <div>
-                <Menu.Button className="inline-flex h-9 w-full justify-center rounded-md bg-black bg-opacity-20 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+        <Menu as="div" className="relative inline text-left">
+            <div className="flex items-center justify-center">
+                <Menu.Button className="inline-flex h-9 w-full items-center justify-center rounded-full bg-black bg-opacity-20 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                     <div className="h-10 w-10 overflow-hidden rounded-full bg-slate-900 outline outline-1 outline-gray-200  hover:cursor-pointer hover:outline-cyan-500">
                         <Avatar />
                     </div>
